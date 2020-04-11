@@ -14,6 +14,7 @@
   border: 6px solid blue;
   border-color: blue transparent blue transparent;
   animation: lds-dual-ring 1.2s linear infinite;
+  margin:auto;
 }
 @keyframes lds-dual-ring {
   0% {
@@ -24,12 +25,45 @@
   }
 }
 .list-group-item:last-child {
-
-    border-bottom-right-radius: .25rem;
+	font-family: times new roman;
+    border-bottom-right-radius: .40rem;
     border-bottom-left-radius: .25rem;
     background-color:  #262626;
     color: yellow;
     font-size: 20px;
-    border: 3px solid yellowgreen;
+	box-shadow: 0 5px 5px 0 black;
 
 }
+button, select {
+    text-transform: none;
+    overflow: hidden;
+    background-color: #262626;
+    border: none;
+    float: right;
+}
+
+button :hover{
+transform: scale(1.3) ;
+}
+hr{
+	background-color:green;
+ }
+
+
+
+ /*DYNAMISM*/
+/*.page {*/
+	/*width: 100vw;*/
+	/*height: 100vh;*/
+	/*position: fixed;*/
+	/*top: 0;*/
+	/*left: -100vw;*/
+	/*overflow-y: auto;*/
+	/*z-index: 0;*/
+	/*background-color: hsl(0,0%,100%);*/
+/*}*/
+
+  /*.page:target {*/
+	/*left: 0vw;*/
+	/*z-index: 1;*/
+/*}*/
