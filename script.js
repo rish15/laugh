@@ -1,6 +1,5 @@
 const randUrl = "https://official-joke-api.appspot.com/random_ten"
 var favourites = []
-
 const getTenRandomJokes = async() =>{
 	let res =   await fetch(randUrl)
 	let data = await res.json();
@@ -10,12 +9,12 @@ const getTenRandomJokes = async() =>{
 const randomJokes = async () =>{
 // APPEND LOADER ELEMENT TO DOM
 var loader = document.createElement("div")
-loader.className = "lds-dual-ring"
+loader.className = "lds-dual-ring  justify-content-center"
 document.getElementById("randomJokes").appendChild(loader)
 
 // Displaying random jokes
 let show = await getTenRandomJokes()
-let randomJokes = '<h4>Random Jokes<h4>'
+let randomJokes = '<h4 class="text-center">Random Jokes<h4>'
 
 	show.forEach(element =>{
 	randomJokes += `
@@ -48,6 +47,7 @@ const favButton = document.querySelectorAll('.fav')
 }
 
 const getFavourites = () =>{
+	 document.getElementById('randomJokes').style.display = 'block'
 	const fav= favourites 
 	var displayFavourites = '<h3> Your Favourite Jokes </h3>'
 	if(fav.length!=0){	
@@ -63,12 +63,12 @@ const getFavourites = () =>{
 		</ul>
 		`;
 	});
+		console.log('12')
 	document.getElementById('displayFavourites').innerHTML = displayFavourites 
-	window.location.hash = "displayFavourites";
+	//window.location.hash = "displayFavourites";
 	}else{
 
 		document.getElementById('displayFavourites').innerHTML = 
-
 			'<h3>Your Favourite Jokes</h3><br>\
 			<div id="noFavFound" class="alert alert-danger" role="alert">\
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">\
@@ -77,10 +77,25 @@ const getFavourites = () =>{
 				<h3>Sorry ! your favourites is empty</h3>\
 			</div>'
 
-		window.location.hash = "#noFavFound"
+ document.getElementById('randomJokes').style.display = 'none'
+		//window.location.hash = "#noFavFound"
 	}
 }
 
 //EVENT LINSTENERS
-document.getElementById('tenJokes').addEventListener('click', randomJokes)
-document.getElementById('favourites').addEventListener('click',getFavourites)
+document.getElementById('tenJokes').addEventListener('click', randomJokes);
+document.getElementById('favourites').addEventListener('click',getFavourites);
+document.onload=randomJokes()
+//document.getElementById('let').innerHTML ="js"
+
+document.querySelectorAll("#tenJokes, #favourites").onclick = function() {
+  document.querySelectorAll("#randomJokes, #displayFavourites").forEach(function(el) {
+    el.style.display = "none";
+	console.log("dis")
+  });
+  if (this.id === "tenJokes") {
+    document.querySelector("#randomJokes").style.display = "block";
+  } else {
+    document.querySelector("#displayFavourites").style.display = "block";
+  }
+}

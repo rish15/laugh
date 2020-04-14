@@ -1,15 +1,19 @@
+body{
+	/*background-image: url('assets/laugh.png');*/
+}
 /*LOADER */
 .lds-dual-ring {
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 180;
+  height: 180px;
+  margin-left:50%;
 }
 .lds-dual-ring:after {
   content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  margin: 50%;
   border-radius: 50%;
   border: 6px solid blue;
   border-color: blue transparent blue transparent;
@@ -51,19 +55,3 @@ hr{
 
 
 
- /*DYNAMISM*/
-/*.page {*/
-	/*width: 100vw;*/
-	/*height: 100vh;*/
-	/*position: fixed;*/
-	/*top: 0;*/
-	/*left: -100vw;*/
-	/*overflow-y: auto;*/
-	/*z-index: 0;*/
-	/*background-color: hsl(0,0%,100%);*/
-/*}*/
-
-  /*.page:target {*/
-	/*left: 0vw;*/
-	/*z-index: 1;*/
-/*}*/
